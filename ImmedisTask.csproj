@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ImmedisTask.Data\ImmedisTask.Data.csproj" />
+    <ProjectReference Include="..\ImmedisTask.Services\ImmedisTask.Services.csproj" />
   </ItemGroup>
 
 </Project>

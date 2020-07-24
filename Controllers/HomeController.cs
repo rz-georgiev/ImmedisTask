@@ -1,37 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ImmedisTask.Data.Interfaces;
+using ImmedisTask.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ImmedisTask.Models;
+using System.Linq;
 
 namespace ImmedisTask.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IEmployeeService _employeeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IEmployeeService employeeService)
         {
-            _logger = logger;
+            _employeeService = employeeService;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
+            var employees = _employeeService.GetAll();
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+            var employeeModels = employees.Select(x => new EmployeeViewModel
+            {
+                Id = x.Id,
+                DepartmentName = x.Department,
+                JobTitle = x.JobTitle,
+                Name = $"{x.FirstName} {x.LastName}",
+                Salary = x.Amount,
+                JoinDate = x.DateJoinedCompany.ToString("dd.MM.yyyy")
+            });
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var model = new IndexViewModel { Employees = employeeModels };
+
+            return View(model);
         }
     }
 }

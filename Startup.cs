@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ImmedisTask.Data;
+using ImmedisTask.Data.Interfaces;
+using ImmedisTask.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +29,9 @@ namespace ImmedisTask
                 options =>
                 options.UseNpgsql(Configuration.GetConnectionString("ImmedisDbConnection"))
             );
+
+            services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<ICommentService, CommentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

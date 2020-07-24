@@ -302,6 +302,19 @@
         "runtime": {
           "bin/placeholder/ImmedisTask.Data.dll": {}
         }
+      },
+      "ImmedisTask.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ImmedisTask.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ImmedisTask.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ImmedisTask.Services.dll": {}
+        }
       }
     }
   },
@@ -882,11 +895,17 @@
       "type": "project",
       "path": "../ImmedisTask.Data/ImmedisTask.Data.csproj",
       "msbuildProject": "../ImmedisTask.Data/ImmedisTask.Data.csproj"
+    },
+    "ImmedisTask.Services/1.0.0": {
+      "type": "project",
+      "path": "../ImmedisTask.Services/ImmedisTask.Services.csproj",
+      "msbuildProject": "../ImmedisTask.Services/ImmedisTask.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ImmedisTask.Data >= 1.0.0",
+      "ImmedisTask.Services >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.6"
     ]
   },
@@ -922,6 +941,9 @@
           "projectReferences": {
             "E:\\Development\\ImmedisTask\\ImmedisTask.Data\\ImmedisTask.Data.csproj": {
               "projectPath": "E:\\Development\\ImmedisTask\\ImmedisTask.Data\\ImmedisTask.Data.csproj"
+            },
+            "E:\\Development\\ImmedisTask\\ImmedisTask.Services\\ImmedisTask.Services.csproj": {
+              "projectPath": "E:\\Development\\ImmedisTask\\ImmedisTask.Services\\ImmedisTask.Services.csproj"
             }
           }
         }
