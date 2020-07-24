@@ -4,14 +4,18 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
+<input type="text" class="form-control" id="filterInput" aria-describedby="elementhelper" placeholder="Search for employee..." onkeyup="filterElements()">
+<br />
+
+<div class="container" id="employeesContainer">
+
     @foreach (var employee in Model.Employees)
     {
         <div class="card border-primary mb-3">
             <div class="card-header">Department: @employee.DepartmentName</div>
             <div class="card-body text-primary">
                 <h5 class="card-title">
-                    <a asp-area="" asp-controller="Employee" asp-action="Index" asp-route-id="@employee.Id">
+                    <a name="employeeHref" asp-area="" asp-controller="Employee" asp-action="Index" asp-route-id="@employee.Id">
                         Mr/Mrs: @employee.Name
                     </a>
                 </h5>
@@ -24,3 +28,25 @@
         </div>
     }
 </div>
+
+<script>
+    function filterElements() {
+        // Declare variables
+        var input = document.getElementById('filterInput');
+        var filter = input.value.toUpperCase();
+
+        var container = document.getElementById("employeesContainer");
+        var elements = container.getElementsByClassName("card border-primary mb-3");
+
+        for (var index = 0; index < elements.length; index++) {
+            var textElements = elements[index].getElementsByClassName("text-xs font-weight-bold text-success text-uppercase mb-1");
+            var textValue = textElements[0].textContent || textElements[0].textContent;
+            if (textValue.toUpperCase().indexOf(filter) > -1) {
+                elements[index].style.display = "";
+            }
+            else {
+                elements[index].style.display = "none";
+            }
+        }
+    }
+</script>
