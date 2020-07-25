@@ -36,9 +36,9 @@ namespace ImmedisTask.Controllers
             return View(indexViewModel);
         }
 
-        public async Task<IActionResult> Edit(int? employeeId)
+        public async Task<IActionResult> Edit(int? commentId)
         {
-            var comment = await _commentService.GetByIdAsync(employeeId);
+            var comment = await _commentService.GetByIdAsync(commentId);
             if (comment == null)
             {
                 return View();
@@ -86,7 +86,7 @@ namespace ImmedisTask.Controllers
             }
 
             await _commentService.SaveChangesAsync(comment);
-            return Redirect("/Comment/Index");
+            return Redirect($"/Comment/Index?employeeId={model.EmployeeId}");
         }
     }
 }
