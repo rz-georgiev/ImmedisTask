@@ -32,7 +32,7 @@ namespace ImmedisTask.Tests
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_WhenEmplyeeIsNull_ShouldReturnFalse()
+        public async Task SaveChangesAsync_WhenEmployeeIsNull_ShouldReturnFalse()
         {
             var result = await _employeeService.SaveChangesAsync(null);
             Assert.IsFalse(result);
