@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using ImmedisTask.ViewModels.Employee;
+using System.Collections.Generic;
 
-namespace ImmedisTask.ViewModels.Home
+namespace ImmedisTask.ViewModels.Employee
 {
     public class IndexViewModel
     {

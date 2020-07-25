@@ -1,4 +1,4 @@
-﻿namespace ImmedisTask.ViewModels.Home
+﻿namespace ImmedisTask.ViewModels.Employee
 {
     public class EmployeeViewModel
     {

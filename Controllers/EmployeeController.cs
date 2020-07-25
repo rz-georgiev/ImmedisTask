@@ -1,7 +1,7 @@
 ﻿using ImmedisTask.Data.Interfaces;
 using ImmedisTask.Data.Models;
 using ImmedisTask.InputModels;
-using ImmedisTask.ViewModels.Home;
+using ImmedisTask.ViewModels.Employee;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;

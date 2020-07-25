@@ -1,8 +1,5 @@
-﻿using ImmedisTask.Data.Models;
-using ImmedisTask.ViewModels.Home;
-using Microsoft.VisualBasic;
+﻿using ImmedisTask.ViewModels.Employee;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -33,7 +30,7 @@ namespace ImmedisTask.InputModels
         /// <summary>
         ///  If false, it is considered anually
         /// </summary>
-        /// 
+        ///
         [Required]
         [DisplayName("Salary is monthly")]
         public bool IsMonthly { get; set; }
