@@ -10,6 +10,7 @@ Migrations will be automatically applied, including default seeded data for test
 * EntityFrameworkCore.PostgreSQL
 * PostgreSQL database
 * Bootstrap
+* MSTest
 
 # Usage
 
