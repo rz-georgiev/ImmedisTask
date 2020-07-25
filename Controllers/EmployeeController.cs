@@ -33,7 +33,8 @@ namespace ImmedisTask.Controllers
                 var model = new EmployeeInputModel
                 {
                     LineManagerEmployeeId = 0,
-                    LineEmployees = lineEmployeesModels
+                    LineEmployees = lineEmployeesModels,
+                    DateJoinedCompany = DateTime.Now
                 };
 
                 return View(model);

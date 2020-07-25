@@ -13,6 +13,7 @@ namespace ImmedisTask.InputModels
         public int Id { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         [DisplayName("Date joined company")]
         public DateTime DateJoinedCompany { get; set; }
 
@@ -41,7 +42,7 @@ namespace ImmedisTask.InputModels
         public decimal Amount { get; set; }
 
         [Required]
-        [DisplayName("Date joined company")]
+        [DisplayName("Department")]
         public string Department { get; set; }
 
         [Required]

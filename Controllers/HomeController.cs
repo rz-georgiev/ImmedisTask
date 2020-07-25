@@ -16,7 +16,9 @@ namespace ImmedisTask.Controllers
 
         public IActionResult Index()
         {
-            var employees = _employeeService.GetAll();
+            var employees = _employeeService
+                .GetAll()
+                .OrderByDescending(x => x.DateJoinedCompany);
 
             var employeeModels = employees.Select(x => new EmployeeViewModel
             {
