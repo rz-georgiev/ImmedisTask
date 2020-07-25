@@ -31,24 +31,33 @@ namespace ImmedisTask.Controllers
                 CreatedDateTime = x.CreatedDateTime.ToString("dd.MM.yyyy")
             });
 
-            var indexViewModel = new IndexViewModel { Comments = models };
+            var indexViewModel = new IndexViewModel 
+            { 
+                EmployeeId = employeeId,
+                Comments = models
+            };
 
             return View(indexViewModel);
         }
 
-        public async Task<IActionResult> Edit(int? commentId)
+        public async Task<IActionResult> Edit(int? commentId, int employeeId)
         {
             var comment = await _commentService.GetByIdAsync(commentId);
             if (comment == null)
             {
-                return View();
+                var inputModel = new CommentInputModel
+                {
+                    EmployeeId = employeeId
+                };
+
+                return View(inputModel);
             }
             else
             {
                 var inputModel = new CommentInputModel
                 {
                     Id = comment.Id,
-                    EmployeeId = comment.EmployeeId,
+                    EmployeeId = employeeId,
                     Author = comment.Author,
                     CommentContent = comment.CommentContent
                 };
