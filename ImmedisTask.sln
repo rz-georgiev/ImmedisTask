@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImmedisTask.Data", "Immedis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImmedisTask.Services", "ImmedisTask.Services\ImmedisTask.Services.csproj", "{7A12D814-5981-4762-A4E4-83EE60198C7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmedisTask.Tests", "ImmedisTask.Tests\ImmedisTask.Tests.csproj", "{96ED58E4-9C40-4995-9E19-1D0AD2FA23DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7A12D814-5981-4762-A4E4-83EE60198C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A12D814-5981-4762-A4E4-83EE60198C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A12D814-5981-4762-A4E4-83EE60198C7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96ED58E4-9C40-4995-9E19-1D0AD2FA23DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96ED58E4-9C40-4995-9E19-1D0AD2FA23DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96ED58E4-9C40-4995-9E19-1D0AD2FA23DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96ED58E4-9C40-4995-9E19-1D0AD2FA23DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
