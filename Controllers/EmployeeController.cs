@@ -84,7 +84,7 @@ namespace ImmedisTask.Controllers
                 {
                     Address = model.Address,
                     Amount = model.Amount,
-                    DateJoinedCompany = DateTime.Now,
+                    DateJoinedCompany = model.DateJoinedCompany,
                     Department = model.Department,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
@@ -99,7 +99,7 @@ namespace ImmedisTask.Controllers
             {
                 employee.Address = model.Address;
                 employee.Amount = model.Amount;
-                employee.DateJoinedCompany = DateTime.Now;
+                employee.DateJoinedCompany = model.DateJoinedCompany;
                 employee.Department = model.Department;
                 employee.FirstName = model.FirstName;
                 employee.LastName = model.LastName;
