@@ -1,0 +1,31 @@
+﻿@model ImmedisTask.ViewModels.Comment.IndexViewModel
+
+@{
+    ViewData["Title"] = "Comments";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Author</th>
+            <th scope="col">Content</th>
+            <th scope="col">Created on</th>
+            <th scope="col">Modify</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model.Comments)
+        {
+            <tr>
+                <td>@comment.Author</td>
+                <td>@comment.CommentContent</td>
+                <td>@comment.CreatedDateTime</td>
+                <td>
+                    <a asp-area="" asp-controller="Comment" asp-action="Edit" asp-route-commentId="@comment.Id">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
