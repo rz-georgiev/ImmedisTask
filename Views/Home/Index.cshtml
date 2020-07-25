@@ -24,7 +24,8 @@
                 <p class="card-text">
                     Job: @employee.JobTitle <br />
                     Salary: $@employee.Salary <br />
-                    Join date: @employee.JoinDate
+                    Join date: @employee.JoinDate <br /> <br />
+                    <a asp-area="" asp-controller="Comment" asp-action="Index" asp-route-employeeId="@employee.Id">Check comments</a>
                 </p>
             </div>
         </div>
