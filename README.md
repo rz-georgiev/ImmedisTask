@@ -3,7 +3,7 @@ ImmedisTask
 
 # Installation
 Download the project.
-Change your PostgreSQL credentials in the appsettings.json file.
+Change your PostgreSQL credentials in the appsettings.json file both in the ImmedisTask and in the ImmedisTask.Tests project.
 Build and run.
 Migrations will be automatically applied + default seeded data will be added for testing.
 
