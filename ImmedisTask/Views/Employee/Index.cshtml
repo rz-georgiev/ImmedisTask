@@ -1,0 +1,69 @@
+﻿@model ImmedisTask.InputModels.EmployeeInputModel
+
+@{
+    ViewData["Title"] = "Employee editor";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="LineManagerEmployeeId"></label>
+        <select id="employees" class="custom-select" asp-for="LineManagerEmployeeId" asp-items="@(new SelectList(Model.LineEmployees, "Id", "Name"))"></select>
+        <span asp-validation-for="LineManagerEmployeeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Amount"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Department"></label>
+        <input asp-for="Department" class="form-control" />
+        <span asp-validation-for="Department" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateJoinedCompany"></label>
+        <input asp-for="DateJoinedCompany" class="form-control" />
+        <span asp-validation-for="DateJoinedCompany" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="JobTitle"></label>
+        <input asp-for="JobTitle" class="form-control" />
+        <span asp-validation-for="JobTitle" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsMonthly"></label>
+        <input asp-for="IsMonthly" class="form-check" />
+        <span asp-validation-for="IsMonthly" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Save
+    </button>
+</form>
