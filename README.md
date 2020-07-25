@@ -2,8 +2,10 @@
 ImmedisTask
 
 # Installation
-Download, build and run.
-Migrations will be automatically applied, including default seeded data for testing.
+Download the project.
+Change your PostgreSQL credentials in the appsettings.json file.
+Build and run.
+Migrations will be automatically applied + default seeded data will be added for testing.
 
 # Main technologies used:
 * .NET Core 3.1
