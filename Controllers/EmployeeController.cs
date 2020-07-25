@@ -1,8 +1,10 @@
 ﻿using ImmedisTask.Data.Interfaces;
 using ImmedisTask.Data.Models;
 using ImmedisTask.InputModels;
+using ImmedisTask.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ImmedisTask.Controllers
@@ -18,10 +20,22 @@ namespace ImmedisTask.Controllers
 
         public async Task<IActionResult> Index(int? employeeId)
         {
+            var lineEmployees = _employeeService.GetAll();
+            var lineEmployeesModels = lineEmployees.Select(x => new EmployeeViewModel
+            {
+                Id = x.Id,
+                Name = $"{x.FirstName} {x.LastName}"
+            });
+
             var employee = await _employeeService.GetByIdAsync(employeeId);
             if (employee == null)
             {
-                var model = new EmployeeInputModel { LineEmployees = _employeeService.GetAll() };
+                var model = new EmployeeInputModel
+                {
+                    LineManagerEmployeeId = 0,
+                    LineEmployees = lineEmployeesModels
+                };
+
                 return View(model);
             }
             else
@@ -37,9 +51,8 @@ namespace ImmedisTask.Controllers
                     LastName = employee.LastName,
                     IsMonthly = employee.IsMonthly,
                     JobTitle = employee.JobTitle,
-                    LineManagerEmployee = employee.LineManagerEmployee,
                     LineManagerEmployeeId = employee.LineManagerEmployeeId,
-                    LineEmployees = _employeeService.GetAll(),
+                    LineEmployees = lineEmployeesModels,
                 };
 
                 return View(inputModel);
@@ -51,6 +64,15 @@ namespace ImmedisTask.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var lineEmployees = _employeeService.GetAll();
+                var lineEmployeesModels = lineEmployees.Select(x => new EmployeeViewModel
+                {
+                    Id = x.Id,
+                    Name = $"{x.FirstName} {x.LastName}"
+                });
+
+                model.LineEmployees = lineEmployeesModels;
+
                 return View(model);
             }
 
